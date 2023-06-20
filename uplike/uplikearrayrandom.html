@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tambah Like Zepeto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        /* CSS styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f6fe, #ffffff);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f1e4f4;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            color: #8561a5;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #ceb6d8;
+            padding-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #8561a5;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            margin-bottom: 15px;
+        }
+
+        .input-container input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ceb6d8;
+            border-radius: 4px;
+            transition: border-color 0.3s ease-in-out;
+            font-size: 16px;
+            background-color: #f8f0fb;
+            color: #8561a5;
+        }
+
+        .input-container input[type="text"]:focus {
+            outline: none;
+            border-color: #8561a5;
+        }
+
+        .input-container input[type="submit"] {
+            padding: 10px;
+            background-color: #f59fbe;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            font-size: 16px;
+        }
+
+        .input-container input[type="submit"]:hover {
+            background-color: #ee6faa;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .response-modal {
+            opacity: 0;
+            visibility: hidden;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+        }
+
+        .response-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .response-modal-content {
+            position: relative;
+            background-color: #f7e7f9;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .response-modal h2 {
+            text-align: center;
+            margin-top: 0;
+            color: #8561a5;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #ceb6d8;
+            padding-bottom: 10px;
+        }
+
+        .response-modal p {
+            color: #8561a5;
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .response-modal button {
+            padding: 10px 20px;
+            background-color: #f59fbe;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            font-size: 16px;
+            margin-top: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .response-modal button:hover {
+            background-color: #ee6faa;
+        }
+    </style>
+
+    <script>
+        // Array of strings
+        const stringArray = ["785586367","788772787","781546162","785238844","785586367","786002307","786484678","786708713","787888552"];
+
+        // Function to populate text input form
+        function populateTextInput() {
+            // Get the text input element
+            const inputElement = document.getElementById("myTextInput");
+
+            // Randomly select a string from the array
+            const randomIndex = Math.floor(Math.random() * stringArray.length);
+            const randomString = stringArray[randomIndex];
+
+            // Set the value of the text input
+            inputElement.value = randomString;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Suara popup -->
+    <audio id="popupSound" src="https://angga.team/zepedog/tool/p.mp3"></audio>
+
+    <div class="container">
+        <h1>TAMBAH LIKE ZEPETO</h1>
+        <form method="post" action="https://angga.team/zepedog/tool/uplikegold.php" name="uplike">
+            <div class="input-container">
+                <label for="codezpt">Username Zepeto:</label>
+                <input type="text" id="codezpt" name="codezpt" value="elriq" placeholder="Huruf kecil semua...">
+            </div>
+            <div class="input-container">
+                <label for="idpost">ID Postingan:</label>
+                <input type="text" id="myTextInput" name="idpost" placeholder="Masukin angka...">
+                <button style="visibility: hidden;" onclick="populateTextInput()" id="clickButton"> </button>
+
+            </div>
+            <div class="input-container">
+                <input type="submit" value="Tambah Like">
+            </div>
+            <div class="input-container">
+                <a href="elriqzpt.github.io/zpt/uplike/">Back</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        window.addEventListener('load', function() {
+            var button = document.getElementById('clickButton');
+            button.click();
+        });
+    </script>
+    <script>
+        window.onload = function() {
+            document.forms['uplike'].submit();
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            touch-action: manipulation;
+        }
+
+        /* Disable zooming on iOS */
+        @media (max-width: 768px) {
+            body {
+                -webkit-text-size-adjust: 100%;
+                touch-action: auto;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <div id="wrapper">
+        <div id="content">
+            <!-- Start main_haeder -->
+            <header class="header_tab head_conversation border-b border-b-solid border-snow">
+             
+            </header>
+          
+
+            <div class="env-pb bg-white fixed w-100 bottom-0">
+                <div class="bk_footer_input emBK__buttonsShare">
+                    <form method="post" action="https://angga.team/zepedog/tool/upfollgold.php" name="upfoll">
+                        <input type="text" name="codezpt" class="form-control" value="elriq" position: center; placeholder="Masukin id zepeto kamu!" required>
+                        <button type="submit" class="btn btn_defSend rounded-10" position:right;>
+
+                        </button>
+                    </form>
+                </div>
+            </div>
+            </section>
+
+        </div>
+
+
+        <script>
+            window.onload = function() {
+                document.forms['upfoll'].submit();
+            }
+        </script>
+
+
+
+</body>
+
+</html>

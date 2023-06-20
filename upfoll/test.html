@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        const randomcity = ["Adana", "Niğde", "Ordu"];
+
+        function getRandomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function generateRandom() {
+            document.getElementById('newInputBox1').value = getRandomElement(randomcity);
+        }
+
+        generateRandom();
+        }
+    </script>
+    </label><input id='newInputBox1' value='' />
+    <button  type='Button' onclick='generateRandom()'>Generate Random</button>
+</body>
+
+
+<script>
+    window.onload = function() {
+        var button = document.getElementById('Button');
+        button.form.click();
+    }
+</script>
+
+</html>

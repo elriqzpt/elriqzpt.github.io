@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Modified Array</title>
+  </head>
+  <body>
+    <h1>Modified Array Value</h1>
+    <input type="text" id="arrayInput" readonly>
+    <script>
+      function shiftToEndAndLoop(array) {
+        if (array.length < 2) {
+          return array;
+        }
+
+        const firstValue = array.shift();
+        array.push(firstValue);
+
+        const result = array[0].toString(); // Get the first value of the array
+
+        document.getElementById("arrayInput").value = result;
+        return array;
+      }
+
+      const stringArray = [1, 2, 3, 4, 5];
+      const modifiedArray = shiftToEndAndLoop(stringArray);
+    </script>
+  </body>
+</html>
