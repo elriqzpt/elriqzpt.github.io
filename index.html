@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        $(window).load(function() {
+
+            function convert() {
+                var input = document.body.innerHTML;
+                var output = emojione.unicodeToImage(input);
+                document.body.innerHTML = output;
+            }
+
+            convert();
+        });
+    </script>
+
+    <style>
+        img.emojione {
+            // Override any img styles to ensure Emojis are displayed inline
+            margin: 0px !important;
+            display: inline !important;
+        }
+
+        span {
+            font-size: 30rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+<center>
+      <span>😠</span>
+</center>
+    </div>
+</body>
+
+</html>
