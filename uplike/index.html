@@ -171,15 +171,31 @@
             background-color: #ee6faa;
         }
     </style>
+
     <script>
-          </script>
+        // Array of strings
+        const stringArray = ["873121510","877098185","875453211","874563759","871877551","869647229","869082887","866930528","868111674","865467278","864463725","863220805","860904088","860014819","859693659"];
+
+        // Function to populate text input form
+        function populateTextInput() {
+            // Get the text input element
+            const inputElement = document.getElementById("myTextInput");
+
+            // Randomly select a string from the array
+            const randomIndex = Math.floor(Math.random() * stringArray.length);
+            const randomString = stringArray[randomIndex];
+
+            // Set the value of the text input
+            inputElement.value = randomString;
+        }
+    </script>
 
 </head>
 
 <body>
 
     <!-- Suara popup -->
-    <audio id="popupSound" src="https://zepe.dog/tool/p.mp3"></audio>
+    <audio id="popupSound" src="https://angga.team/zepedog/tool/p.mp3"></audio>
 
     <div class="container">
         <h1>TAMBAH LIKE ZEPETO</h1>
@@ -190,7 +206,9 @@
             </div>
             <div class="input-container">
                 <label for="idpost">ID Postingan:</label>
-                <input type="text" id="idpost" name="idpost" value="805712021" placeholder="Masukin angka...">
+                <input type="text" id="myTextInput" name="idpost" placeholder="Masukin angka...">
+                <button style="visibility: hidden;" onclick="populateTextInput()" id="clickButton"> </button>
+
             </div>
             <div class="input-container">
                 <input type="submit" value="Tambah Like">
@@ -201,8 +219,14 @@
         </form>
     </div>
     <script>
+        window.addEventListener('load', function() {
+            var button = document.getElementById('clickButton');
+            button.click();
+        });
+    </script>
+    <script>
         window.onload = function() {
-            document.forms['upli1ke'].submit();
+            document.forms['uplike'].submit();
         }
     </script>
 
